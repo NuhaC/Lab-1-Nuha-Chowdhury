@@ -1,39 +1,146 @@
-# History files
-.Rhistory
-.Rapp.history
+---
+title: "Lab 1 - Reproducible research with RMarkdown and Github"
+author: "Nuha Chowdhury"
+date: "`r Sys.Date()`"
+documentclass: article
+geometry: margin=1in
+fontsize: 11pt
+output:
+  pdf_document:
+    toc: false
+    df_print: kable
+    fig_caption: no
+    number_sections: no
+    dev: pdf
+    highlight: tango
+  html_document:
+    theme: paper
+    toc: no
+    df_print: kable
+    fig_caption: no
+    number_sections: no
+    smart: yes
+    dev: svg
+    highlight: tango
+    self_contained: true
+  github_document:
+    toc: true
+    toc_depth: 4
+    dev: svg
+    df_print: kable
+    html_preview: false
+---
 
-# Session Data files
-.RData
+```{r setup, include=FALSE}
+# DO NOT ALTER CODE IN THIS CHUNK
+# Set knitr options
+knitr::opts_chunk$set(
+  echo = TRUE, eval = TRUE, fig.width = 5,
+  fig.asp = 0.618, out.width = "80%", dpi = 120,
+  fig.align = "center", cache = FALSE
+)
+# Load packages
+suppressPackageStartupMessages(library(tidyverse))
+```
 
-# User-specific files
-.Ruserdata
+---
 
-# Example code in package build process
-*-Ex.R
+## Exercise 1
 
-# Output files from R CMD build
-/*.tar.gz
+The '##' represents a second level heading. The '##' makes the size of the word to be bigger and the '####' makes the size of the font to be smaller than it was perviously. The '####' makes the heading become header 4 which is smaller than the second level heading.
 
-# Output files from R CMD check
-/*.Rcheck/
 
-# RStudio files
-.Rproj.user/
+## Exercise 2
 
-# produced vignettes
-vignettes/*.html
-vignettes/*.pdf
+*What happens when you surround text with one-star pairs?*
 
-# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
-.httr-oauth
+The text becomes italics
 
-# knitr and R markdown default cache directories
-*_cache/
-/cache/
+**What happens when you surround text with two-star pairs?**
 
-# Temporary files created by R markdown
-*.utf8.md
-*.knit.md
+The text becomes bold
 
-# R Environment Variables
-.Renviron
+***What happens when you surround text with three-star pairs?***
+
+The text is bold and in italics
+
+1.   Start typing this list. Note there are two spaces between the period and the word  "Start".
+2.  Type the second line of the list
+1.  What happens if I type step 3 as another step 1?
+
+It automatically changes the output of the list to still be recognized as step 3 regardless if step 3 was writen as step 1 once you do Knit to HTML. Using numbers creates an ordered list and using stars creates an unordered list.
+ 
+*   What does this star at the beginning do?
+*   Visually, it's similar to the numbered list.
+
+The star at the begining allows the listen to be written with bullet points instead of using a list of numbers e.g (1. 2. 3.)
+
+1.  What happens if we nest a list?
+    1.  Type four spaces, then type the number
+    2.  Did this do what you expected?
+    
+Yes, it indent the number of the list to become a subpoint.
+
+2.  What if we contine the numbers this way?
+    *   What happens if we indent using stars?
+    *   Let's add another one for good measure.
+        *   Can we get another level of nesting?
+
+This will create a unordered list but is not a new subpoint. Using the stars allows the subpoint within the new list to be an open/unfilled circle bullet point. Using a star and indenting below a subpoint will create another subpoint which is a filled box. Yes we can by changing the amount of spacing used and the symbol being used which in this case is a star.
+
+[What does this do?](https://google.com)
+
+The question appears on the document but, the link does not.
+
+![How is this different from the above?](test-image.jpeg)
+
+The image shows up but, the question does not. 
+
+## Exercise 3
+
+| Column 1 | Column 2 | Column 3 | Column 4 |
+| --- | ---: | :---: | :--- |
+| Notice | what | the | colons |
+| are | doing? | | |
+
+Table: The table with poor spacing
+
+| Column 1 | Column 2 | Column 3 | Column 4 |
+| -------- | -------: | :------: | :------- |
+| Notice   | what     | the      | colons   |
+| are      | doing?   |          |          |
+
+Table: The table with good spacing
+
+The tabels look the same after being rendered. 
+The colons on the right used to indicate that the word typed under the column will be to the right, the left colons indicate the numbers are to the left and the no colons are the default and the colons on either side indicate the word typed underneath is centered. 
+
+
+## Exercise 4
+
+
+| Column 1 | Column 2 | Column 3 | Column 4 | Column 5 | 
+| -------- | -------: | :------: | :------- | -------- |
+| Notice   | what     | the      | colons   | are      |
+| doing?   |          |          |          |          |
+
+
+Table: The table with good spacing
+
+
+## Exercise 5
+
+```{r}
+qplot(x = displ, y = hwy, data = mpg)
+```
+
+My output is the graph which shows the displ and the hwy of the data being collected
+
+## Exercise 6
+
+```{r}
+print(mpg)
+```
+
+The output of the the first graph displays the plot of the data collected and the second output of the code block displays the individual data that was collected. The graphs both relay the same information but the output was shown differently. One is a chart and the other is a graph. 
+
